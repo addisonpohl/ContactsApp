@@ -26,6 +26,7 @@ class Api::ContactsController < ApplicationController
     @contact.last_name = params[:last_name] || @contact.last_name
     @contact.phone_number = params[:phone_number] || @contact.phone_number
     @contact.email = params[:email] || @contact.email
+    @contact.save
     render "show.json.jbuilder"
   end
 
