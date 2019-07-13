@@ -28,4 +28,10 @@ class Api::ContactsController < ApplicationController
     @contact.email = params[:email] || @contact.email
     render "show.json.jbuilder"
   end
+
+  def delete
+    @contact = Contact.find_by(id: params[:id])
+    @contact.destroy
+    render json: {message: "Contact Deleted"}
+  end
 end
